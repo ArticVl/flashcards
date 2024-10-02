@@ -13,20 +13,22 @@ const carName = document.getElementById('carName');
 const revealButton = document.getElementById('reveal');
 const prevButton = document.getElementById('prev');
 const nextButton = document.getElementById('next');
+const flashcard = document.getElementById('flashcard');
 
-// Função para atualizar o flashcard
+
 function updateFlashcard() {
     carPosition.textContent = currentIndex + 1;
     carName.textContent = cars[currentIndex];
     carName.classList.add('hidden');
+    flashcard.classList.remove('flip');
 }
 
-// Função para revelar o carro
 revealButton.addEventListener('click', () => {
     carName.classList.remove('hidden');
+    flashcard.classList.add('flip');
 });
 
-// Botão para o próximo carro
+
 nextButton.addEventListener('click', () => {
     if (currentIndex < cars.length - 1) {
         currentIndex++;
@@ -34,7 +36,7 @@ nextButton.addEventListener('click', () => {
     }
 });
 
-// Botão para o carro anterior
+
 prevButton.addEventListener('click', () => {
     if (currentIndex > 0) {
         currentIndex--;
@@ -42,5 +44,4 @@ prevButton.addEventListener('click', () => {
     }
 });
 
-// Inicializar o flashcard com o primeiro carro
 updateFlashcard();
