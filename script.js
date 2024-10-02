@@ -19,16 +19,14 @@ const flashcard = document.getElementById('flashcard');
 function updateFlashcard() {
     carPosition.textContent = currentIndex + 1;
     carName.textContent = cars[currentIndex];
+    carName.classList.add('hidden');
     flashcard.classList.remove('flip');
-    document.querySelector('.flashcard-back').classList.add('hidden'); // Esconde a parte traseira
-    document.querySelector('.flashcard-front').classList.remove('hidden'); // Mostra a parte da frente
 }
 
 // Função para revelar o carro
 revealButton.addEventListener('click', () => {
+    carName.classList.remove('hidden');
     flashcard.classList.add('flip');
-    document.querySelector('.flashcard-back').classList.remove('hidden'); // Mostra a parte traseira
-    document.querySelector('.flashcard-front').classList.add('hidden'); // Esconde a parte da frente
 });
 
 // Botão para o próximo carro
